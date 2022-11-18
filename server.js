@@ -7,13 +7,14 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "*",
 };
 
 const connectDB = require("./db/connect.js");
 
 // routers
 const authRouter = require("./routes/auth-routes.js");
+const scheduleRouter = require("./routes/schedule-routes.js")
 
 // middleware
 const notFoundMiddleware = require("./middleware/not-found.js");
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to smart-scheduler backend" });
 });
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/schedule", scheduleRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
