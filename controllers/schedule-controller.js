@@ -26,6 +26,7 @@ const getSchedule = (req, res) => {
 const automateSchedule = (req, res) => {
     console.log("[automateSchedule] automate schedule data requested")
     // add logic 
+    // testing 
     // update db 
     console.log("[automateSchedule] automate schedule data sent")
 }
